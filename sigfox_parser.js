@@ -2,9 +2,9 @@ function main(params, callback) {
     var INT16_t_MAX = 32767;
     var UINT16_t_MAX = 65536;
 
-    var moduleTemperature = (params.custom.moduleTemp / INT16_t_MAX * 120).toFixed(2);
-    var sensorTemperature = (params.custom.sensorTemp / INT16_t_MAX * 120).toFixed(2);
-    var sensorHumidity = (params.custom.sensorHum / UINT16_t_MAX * 110).toFixed(2);
+    var moduleTemperature = (params.custom.moduleTemperature / INT16_t_MAX * 120).toFixed(2);
+    var sensorTemperature = (params.custom.sensorTemperature / INT16_t_MAX * 120).toFixed(2);
+    var sensorHumidity = (params.custom.sensorHumidity / UINT16_t_MAX * 110).toFixed(2);
     var heatIndex = computeHeatIndex(sensorTemperature, sensorHumidity, false).toFixed(2);
 
     var result = [
