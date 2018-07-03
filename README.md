@@ -1,5 +1,4 @@
-# MKRFox1200_weather_station
-MKRFox1200 Weather Station
+# MKRFox1200 Weather Station
 
 Simple weather station connected with Sigfox using a Arduino MKR Fox 1200.
 
