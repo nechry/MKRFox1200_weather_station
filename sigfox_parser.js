@@ -2,23 +2,22 @@ function main(params, callback) {
     var INT16_t_MAX = 32767;
     var UINT16_t_MAX = 65536;
 
-    var moduleTemp = (params.custom.moduleTemp / INT16_t_MAX * 120).toFixed(2);
-    var sensorTemp = (params.custom.sensorTemp / INT16_t_MAX * 120).toFixed(2); // the DHT temp
-    var sensorHum = (params.custom.sensorHum / UINT16_t_MAX * 110).toFixed(2);
-
-    var heatIndex = computeHeatIndex(dhtTemp, dhtHum, false).toFixed(2);;
+    var moduleTemperature = (params.custom.moduleTemp / INT16_t_MAX * 120).toFixed(2);
+    var sensorTemperature = (params.custom.sensorTemp / INT16_t_MAX * 120).toFixed(2);
+    var sensorHumidity = (params.custom.sensorHum / UINT16_t_MAX * 110).toFixed(2);
+    var heatIndex = computeHeatIndex(sensorTemperature, sensorHumidity, false).toFixed(2);
 
     var result = [
         //Replace with your own payload parse
         {
-            "key": "moduleTemp",
-            "value": moduleTemp
+            "key": "moduleTemperature",
+            "value": moduleTemperature
         }, {
-            "key": "sensorTemp",
-            "value": sensorTemp
+            "key": "sensorTemperature",
+            "value": sensorTemperature
         }, {
-            "key": "sensorHum",
-            "value": sensorHum
+            "key": "sensorHumidity",
+            "value": sensorHumidity
         }, {
             "key": "heatIndex",
             "value": heatIndex
@@ -54,7 +53,6 @@ function computeHeatIndex(temperature, percentHumidity, isFahrenheit) {
         else if ((percentHumidity > 85.0) && (temperature >= 80.0) && (temperature <= 87.0))
             hi += ((percentHumidity - 85.0) * 0.1) * ((87.0 - temperature) * 0.2);
     }
-
     return isFahrenheit ? hi : convertFtoC(hi);
 }
 
