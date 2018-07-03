@@ -14,9 +14,9 @@ Sigfox communications supports up to 140 uplink messages a day, each of which ca
 ## Custom Callback
 
 ## payload config
-moduleTemp::int:16:little-endian sensorTemp::int:16:little-endian sensorHum::uint:16:little-endian lastMsg::uint:8
+moduleTemperature::int:16:little-endian sensorTemperature::int:16:little-endian sensorHumidity::uint:16:little-endian lastMessageStatus::uint:8
 
 ## Subriscription URL
-<YOUR_SUBSCRIPTION_URL>?id={device}&data={data}&moduleTemp={customData#moduleTemp}&sensorTemp={customData#sensorTemp}&sensorHum={customData#sensorHum}&lastMsg={customData#lastMsg}
+<YOUR_SUBSCRIPTION_URL>?id={device}&data={data}&moduleTemperature={customData#moduleTemperature}&sensorTemperature={customData#sensorTemperature}&sensorHumidity={customData#sensorHumidity}&lastMessageStatus={customData#lastMessageStatus}
 
 HTTP "POST" method Content type: application/x-www-form-urlencoded
